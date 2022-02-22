@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //create cookie
+        function setCookie(cname, cvalue, exdays) {
+            const d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            let expires = "expires="+ d.toUTCString();
+            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+        }
+        //get cookie
+        function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i <ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+        }
+        function checkCookie() {
+            let user = getCookie("username");
+            if (user != "") {
+                alert("Medicine last taken at: ");
+            } else {
+                user = prompt("Please enter your name:","");
+                if (user != "" && user != null) {
+                    setCookie("username", user, 30);
+
+                }
+            }
+        }
+
+        function trackMeds(){
+            let time_taken = getCookie("timetaken");
+            const d = new Date();
+            let timetaken = d.toLocaleTimeString();
+            setCookie("timetaken",timetaken,30);
+
+
+        }
+        function checkLast(){
+            document.cookie;
+            document.getElementById("last_time").innerHTML = document.cookie;
+        }
+    </script>
+</head>
+<body>
+
+
+
+<button id="take-meds" onclick="trackMeds()">I TOOK MY MEDS</button>
+<button id="check-last" onclick="checkLast()">Check Last Time Taken</button>
+<div id="demo">Last time taken: </div>
+<div id="last_time"></div>
+
+
+</body>
+</html>
