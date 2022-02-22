@@ -41,16 +41,11 @@
         }
 
         function trackMeds(){
-            let time_taken = getCookie("timetaken");
-            const d = new Date();
-            let timetaken = d.toLocaleTimeString();
-            setCookie("timetaken",timetaken,30);
-
-
+            let d = new Date();
+            setCookie("timetaken",d.toLocaleTimeString(),30);
         }
         function checkLast(){
-            document.cookie;
-            document.getElementById("last_time").innerHTML = document.cookie;
+            document.getElementById("last_time").innerHTML = getCookie("timetaken");
         }
     </script>
 </head>
