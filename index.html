@@ -42,7 +42,8 @@
 
         function trackMeds(){
             let d = new Date();
-            setCookie("timetaken",d.toLocaleTimeString(),30);
+
+            setCookie("timetaken","Last Time Taken: "+d.toLocaleDateString()+" at "+d.toLocaleTimeString(),30);
         }
         function checkLast(){
             document.getElementById("last_time").innerHTML = getCookie("timetaken");
@@ -55,6 +56,7 @@
 
 <button id="take-meds" style="width:400px; height: 400px"  onclick="trackMeds()">I TOOK MY MEDS</button>
 <button id="check-last" style="width:400px; height: 400px" onclick="checkLast()">Check Last Time Taken</button>
+<div id="demo"></div>
 <div id="last_time"></div>
 
 
