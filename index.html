@@ -108,10 +108,13 @@
                 + minutes + "m " + seconds + "s ";
 
             // If the count down is finished, write some text
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("demo2").innerHTML = "EXPIRED";
+            if (hours > 20) {
+                document.getElementById("demo3").innerHTML = "Time To Take Your Medicine!";
             }
+            if (hours < 18) {
+                document.getElementById("demo3").innerHTML = "You've Already Taken Your Medicine!";
+            }
+
         }, 1000);
     </script>
 
@@ -119,6 +122,7 @@
 </div>
 
 <p id="demo" > </p>
+<p id="demo3" ></p>
 
 
 
