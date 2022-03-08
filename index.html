@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Title</title>
     <script>
         //create cookie
@@ -45,19 +44,43 @@
             let d = new Date();
 
             setCookie("timetaken","Last Time Taken: "+d.toLocaleDateString()+" at "+d.toLocaleTimeString(),30);
+            checkLast();
         }
         function checkLast(){
             document.getElementById("last_time").innerHTML = getCookie("timetaken");
         }
     </script>
+    <style>
+    .DisplayTime {
+        border: 5px outset red;
+        padding:10px;
+        margin-top: 15%;
+        margin-left: 25%;
+        margin-right: 25%;
+
+
+
+    }
+    </style>
 </head>
-<body style="text-align: center">
+<body style="text-align: center; background-color: antiquewhite">
+<div>
+    <h1 style="color: blue">
+        MedTracker
+    </h1>
+</div>
+
+<div class=DisplayTime>
+    <button id="take-meds" style="width:50%; height: 100px; background-color: cornsilk;"  onclick="trackMeds()">I TOOK MY MEDS</button>
+    <div  id="last_time"></div>
+
+
+</div>
 
 
 
-<button id="take-meds" style="width:50%; height: 200px;"  onclick="trackMeds()">I TOOK MY MEDS</button>
-<div id="demo"></div>
-<div id="last_time" style="text-align: center"></div>
+
+
 <div>
     <script>
         checkLast();
