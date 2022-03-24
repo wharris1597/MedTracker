@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta content='width=device-width, initial-scale=1' name='viewport'/>
     <title>MedTracker</title>
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" />
     <style>
 
@@ -74,10 +74,14 @@
         }
         function checkLast(){
             document.getElementById("last_time").innerHTML = "Time Last Taken: " + getCookie("timetaken");
+            document.getElementById("last_time").style.fontWeight = "600";
         }
     </script>
 </head>
-<body style="background-color: #333333; font-family: 'Open Sans'" >
+<body style="background-image: url('bubbles.png');background-position: center center; background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-color: #333333; font-family: 'Open Sans'" >
 <div id="pageheader" class="pageheader"><span style="font-weight: 800">MedTracker</span> by  <span style="font-weight: 600"><a href="https://williamharris.dev" style="text-decoration: none; color: #b3b3b3">William Harris</a></span></div>
 <div id="button" class="button"><button id="take-meds" class=button style="height: 75px; background-color: #29ABE2; border-radius: 12px; border:none; color:#ffffff;"  onclick="trackMeds()">I TOOK MY MEDS</button></div>
 <br>
@@ -107,6 +111,7 @@
             // Display the result in the element with id="demo"
             document.getElementById("demo2").innerHTML =  "Time Elapsed: "+days + "d " + hours + "h "
                 + minutes + "m ";
+            document.getElementById("demo2").style.fontWeight = "600";
 
         }, 1000);
     </script>
